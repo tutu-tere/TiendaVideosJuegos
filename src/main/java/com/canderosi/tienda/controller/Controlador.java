@@ -41,12 +41,9 @@ public class Controlador implements ManejoDeFechas {
   // creacion de rutas
   // @RequestMapping(value = "/getAll", method = RequestMethod.GET)
   @GetMapping("/getAll")
-  public String inicio() {
-    String str = "";
-    for (int i = 0; i < this.videojuegos.size(); i++) {
-      str += this.videojuegos.get(i).toString() + " \n";
-    }
-    return str;
+  public String inicio(Model modelo) {
+    modelo.addAttribute("videojuegos", this.videojuegos);
+    return "videojuegos.jsp";
   }
 
   // Parametros de consulta, ejemplo: /search?name=Oustlast aqui se busca un valor
